@@ -21,9 +21,9 @@ resources:
       jq -n '[{ref: "v1"}]'
 
     in_script: |
-      version="$(jq -r '.version' <&0)"
+      jq -r '.version' <&0 > /tmp/version.json
       echo "foo" > $1/output
-      jq -n '{version: $version}' --arg version="$version"
+      jq -n '{version: $version[0]}' --slurpfile version /tmp/version.json
 
     out_script: |
       jq -n '{version: {ref: "v2"}}'
