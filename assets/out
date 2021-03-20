@@ -4,7 +4,7 @@ set -e -u
 
 cat > /tmp/payload <&0
 
-echo "#!/bin/bash" >> /tmp/script.sh
+echo "#!/bin/bash" > /tmp/script.sh
 jq -r '.source.out_script // ""' < /tmp/payload >> /tmp/script.sh
 chmod +x /tmp/script.sh
 cat /tmp/payload | /tmp/script.sh "$1"
