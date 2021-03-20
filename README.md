@@ -3,7 +3,8 @@
 A Concourse resource type with the sole purpose of making it easier to write
 your own custom resource types for testing without needing to go through the
 trouble of creating a Docker image. Just provide your `check`, `in`, and `out`
-scripts in the `source`, and you're good to go (assuming all you need is `jq`!)
+scripts in the `source`, and you're good to go (assuming all you need is `jq`
+or `python`!)
 
 ## Example
 
